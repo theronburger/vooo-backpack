@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "cross-storage": "^1.0.0",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",

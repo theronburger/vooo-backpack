@@ -2,10 +2,32 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+	const items = [
+		{
+			name: "Cabbage",
+			src: "/cabbage.png",
+		},
+		{
+			name: "Carrot",
+			src: "/carrot.png",
+		},
+		{
+			name: "Pumpkin",
+			src: "/pumpkin.png",
+		},
+	];
+	useEffect(() => {
+		for (let i = items.length; i < 5 * 7; i++) {
+			console.log("making new item");
+			items.push({ name: "", src: "blank.png" });
+		}
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -30,7 +52,24 @@ export default function Home() {
 						className="inventoryImage"
 					></img>
 					<div className="inventoryGrid">
-						<img
+						{items.map((item, index) => {
+							console.log(item.name);
+							return (
+								<img
+									key={index}
+									className="item"
+									src={item.src}
+								></img>
+							);
+						})}
+					</div>
+				</div>
+			</main>
+		</>
+	);
+}
+{
+	/* <img
 							className="item"
 							src="/pumpkin.png"
 						></img>
@@ -41,10 +80,5 @@ export default function Home() {
 						<img
 							className="item"
 							src="/carrot.png"
-						></img>
-					</div>
-				</div>
-			</main>
-		</>
-	);
+						></img> */
 }
