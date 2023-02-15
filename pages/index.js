@@ -22,8 +22,8 @@ export default function Home() {
 		},
 	];
 	useEffect(() => {
+		console.log("Version 0.0.3 loaded");
 		for (let i = items.length; i < 5 * 7; i++) {
-			console.log("making new item");
 			items.push({ name: "", src: "blank.png" });
 		}
 	}, []);
